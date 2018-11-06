@@ -1,0 +1,16 @@
+<h1>Tasks</h1>
+<ul>
+  <% @tasks.each do |task| %>
+  <li>
+      <p><% if task.completed %>
+        <%= link_to "", task_edit_path(task), method:"get", class:"far fa-check-square" %>
+      <% else %>
+        <%= link_to "", task_edit_path(task), method:"get", class:"far fa-square" %>
+      <% end %>
+     <strong><%= link_to task.title, task_path(task) %></strong> - <%= task.details %>
+    <%= link_to "", task_destroy_path(task), method: "delete", class:"fas fa-trash-alt" %></p>
+  </li>
+  <% end %>
+</ul>
+
+<p><%= link_to "+ Add new task", tasks_new_path %> </p>
